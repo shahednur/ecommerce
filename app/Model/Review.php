@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use App\Model\Product;
-use App\Model\Customer;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -15,9 +13,9 @@ class Review extends Model
     public $timestamps = true;
 
     public function products(){
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo('App\Model\Product','product_id');
     }
     public function customers(){
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo('App\Model\Customer','customer_id');
     }
 }

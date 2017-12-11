@@ -13,6 +13,6 @@ class Product extends Model
     public $timeStamps = true;
 
     public function reviews(){
-        return $this->hasMany(App\Model\Review::class);
+        return $this->hasMany('App\Model\Review','id');
     }
 }

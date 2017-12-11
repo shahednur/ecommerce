@@ -3,8 +3,6 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Review;
-use App\Model\Address;
 
 
 class Customer extends Model
@@ -15,9 +13,9 @@ class Customer extends Model
     public $timestamps = true;
 
     public function addresses(){
-        return $this->belongsTo(Address::class);
+        return $this->belongsTo('App\Model\Address','address_id');
     }
     public function reviews(){
-        return $this->hasMany(Review::class);
+        return $this->hasMany('App\Model\Review','id');
     }
 }

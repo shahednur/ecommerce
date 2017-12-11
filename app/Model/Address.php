@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Customer;
 
 class Address extends Model
 {
@@ -13,6 +12,6 @@ class Address extends Model
     public $timestamps = false;
 
     public function customers(){
-        return $this->hasMany(Customer::class);
+        return $this->hasMany('App\Model\Customer','id');
     }
 }
