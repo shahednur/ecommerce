@@ -18,6 +18,7 @@ class CreateAddressesTable extends Migration
             $table->string('house');
             $table->string('road');
             $table->string('community');
+            $table->string('zipcode');
             $table->string('state');
             $table->string('country');
             $table->timestamps();
