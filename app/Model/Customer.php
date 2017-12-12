@@ -13,7 +13,7 @@ class Customer extends Model
     public $timestamps = true;
 
     public function addresses(){
-        return $this->belongsTo('App\Model\Address','address_id');
+        return $this->hasMany('App\Model\Address','id');
     }
     public function reviews(){
         return $this->hasMany('App\Model\Review','id');

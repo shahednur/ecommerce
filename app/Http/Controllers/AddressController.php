@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Address\AddressResource;
 use App\Model\Address;
 use Illuminate\Http\Request;
+use App\Model\Customer;
 
 class AddressController extends Controller
 {
@@ -12,9 +14,9 @@ class AddressController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Customer $customer)
     {
-        //
+        return AddressResource::collection($customer->addresses);
     }
 
     /**
@@ -46,7 +48,7 @@ class AddressController extends Controller
      */
     public function show(Address $address)
     {
-        //
+        return new AddressResource($address);
     }
 
     /**

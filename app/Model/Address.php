@@ -12,6 +12,6 @@ class Address extends Model
     public $timestamps = false;
 
     public function customers(){
-        return $this->hasMany('App\Model\Customer','id');
+        return $this->belongsTo('App\Model\Customer','address_id');
     }
 }
