@@ -15,7 +15,7 @@ class ProductResource extends Resource
      */
     public function toArray($request)
     {
-        return array(
+        return [
             'name'=>$this->name,
             'description'=>$this->detail,
             'price'=>$this->price,
@@ -26,6 +26,6 @@ class ProductResource extends Resource
             'href'=> [
                 'reviews'=>route('reviews.index',$this->id),
             ]
-        );
+        ];
     }
 }
