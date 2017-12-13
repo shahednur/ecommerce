@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Model\Review;
 use Illuminate\Http\Request;
 use App\Http\Resources\Review\ReviewResource;
+use App\Http\Requests\ReviewRequest;
 use App\Model\Product;
+use Symfony\Component\HttpFoundation\Response;
 
 class ReviewController extends Controller
 {
@@ -32,12 +34,16 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\ReviewRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request,Product $product)
     {
-        //
+        $review = new Review($request->all());
+        $product->reviews()->save($review->customers());
+        return response([
+            'data'=>new ReviewResource($review),
+        ],Response::HTTP_CREATED);
     }
 
     /**
